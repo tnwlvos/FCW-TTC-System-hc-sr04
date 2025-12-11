@@ -3,7 +3,7 @@
 
 #include <wiringPi.h>
 
-#define BUZZER_PIN 5
+#define BUZZER_PIN 21
 extern volatile int buzzer_mode; 
 void Buzzer_Init(void);
 void Buzzer_beep_warning(void);

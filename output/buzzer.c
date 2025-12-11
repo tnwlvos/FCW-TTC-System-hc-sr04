@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "../../OutputCtrl.h"
 #include <softTone.h>
+#include "../logic/systemstate.h"
 #define BUZZER_PIN 21
 
 
@@ -13,11 +14,11 @@ volatile int buzzer_mode = 0;
 
 void Buzzer_Update(void)
 {
-    if (buzzer_mode == 2)          // DANGER → 연속 톤
+    if (sdv_sys.fcw_state == FCW_DANGER)          // DANGER → 연속 톤
     {
         softToneWrite(BUZZER_PIN, 1200);  // 1.2kHz (자동차 느낌)
     }
-    else if (buzzer_mode == 1)     // WARNING → 삐삐 패턴
+    else if (sdv_sys.fcw_state== FCW_WARNING)     // WARNING → 삐삐 패턴
     {
         softToneWrite(BUZZER_PIN, 1000);
         delay(120);

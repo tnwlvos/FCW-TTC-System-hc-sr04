@@ -1,16 +1,12 @@
 #ifndef FCW_LOGIC_H
 #define FCW_LOGIC_H
+#include <stdint.h>
 
-typedef enum {
-    FCW_SAFE = 0,
-    FCW_WARNING,
-    FCW_DANGER
-} fcw_state;
-fcw_state fcw_update(float distance);
+void fcw_update(void);
 
-const char* fcw_state_to_string(fcw_state state);
+const char* fcw_state_to_string(void);
 
-float fcw_get_relative_speed(void);
+int16_t fcw_get_relative_speed(void);
 float fcw_get_ttc(void);
 
 #endif // FCW_LOGIC_H

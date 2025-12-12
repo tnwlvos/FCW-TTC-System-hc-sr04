@@ -35,9 +35,11 @@ typedef struct{
 	MotorCmd motor_cmd;
 	MotorCmd last_motor_cmd;
 	MotorDir motor_dir;
-	uint16_t distance_cm;
-    uint16_t last_distance_cm;
+	float distance_cm;
+    float last_distance_cm;
 	float speed_cms;
+	float last_speed_cms;
+	float ttc;
     fcw_states fcw_state;
 	bool distance_flag;	//새 거리값 들어왔는지 확인용 플래그
 	bool pc_connect;	// PC 링크 감지용
